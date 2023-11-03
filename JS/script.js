@@ -11,6 +11,13 @@ menuBtn.addEventListener("click", function () {
   slider.classList.toggle("slider--active");
   overlay.classList.toggle("overlay--active");
 });
+
+overlay.addEventListener("click", function () {
+  document.getElementById("check").checked = false;
+  body.classList.toggle("scroll--lock");
+  slider.classList.toggle("slider--active");
+  overlay.classList.toggle("overlay--active");
+});
 /////////////////////////////////////////////
 
 // --> Intersection Observer
@@ -144,6 +151,7 @@ let stockLeft;
   backedAmount.textContent = backAmt;
   totalBack.textContent = total__back;
   dayLeft.textContent = days;
+  range.value = backAmt;
 })();
 
 const showSuccessfulMessage = function () {
@@ -161,6 +169,7 @@ const updateFund = function (num, left, product) {
     stockLeft = left - 1;
     backedAmount.textContent = backAmt;
     totalBack.textContent = total__back;
+    range.value = backAmt;
 
     if (product === "Bamboo") {
       bambooStandLeft.forEach((item) => (item.textContent = stockLeft));
@@ -198,5 +207,4 @@ gotItBtn.addEventListener("click", function () {
   overlay_2.classList.toggle("overlay--active");
   successfulCard.classList.toggle("hidden");
 });
-
 /////////////////////////////////////////////
